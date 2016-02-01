@@ -12,6 +12,8 @@ $ npm install -g bash-handbook
 
 You should be able to run `bash-handbook` at the command line now. This will open the manual in your selected `$PAGER`. Otherwise, you may continue reading on here.
 
+The source is available here: <https://github.com/denysdovhan/bash-handbook>
+
 # Table of Contents
 
 - [Introduction](#introduction)
@@ -57,9 +59,19 @@ You should be able to run `bash-handbook` at the command line now. This will ope
 
 If you are a developer, then you know the value of time. Optimizing your work process is one of the most important aspects of the job.
 
-In that path towards efficiency and productivity, we are often posed with actions that must be repeated over and over again, like taking a screenshot and uploading it to a server, processing text that may come in many shapes and forms, converting files between different formats, parsing a program's output and the list goes on. Enter bash, our savior.
+In that path towards efficiency and productivity, we are often posed with actions that must be repeated over and over again, like:
 
-**Bash** is a Unix shell written by [Brian Fox](https://en.wikipedia.org/wiki/Brian_Fox_(computer_programmer)) for the GNU Project as a free software replacement for the [Bourne shell](https://en.wikipedia.org/wiki/Bourne_shell). It was released in 1989 and has been distributed as the Linux and OS X default shell for a long time.
+* taking a screenshot and uploading it to a server
+* processing text that may come in many shapes and forms
+* converting files between different formats
+* parsing a program's output
+
+Enter **Bash**, our savior.
+
+Bash is a Unix shell written by [Brian Fox][] for the GNU Project as a free software replacement for the [Bourne shell](https://en.wikipedia.org/wiki/Bourne_shell). It was released in 1989 and has been distributed as the Linux and OS X default shell for a long time.
+
+[Brian Fox]: https://en.wikipedia.org/wiki/Brian_Fox_(computer_programmer)
+<!-- link this format, because some MD processors handle '()' in URLs poorly -->
 
 So why do we need to learn something that was written more than 30 years ago? The answer is simple: this _something_ is today one of the most powerful and portable tools for writing efficient scripts for all Unix-based systems. And that's why you should learn bash. Period.
 
@@ -425,7 +437,7 @@ There are two different conditional statements: `if` statement and `case` statem
 
 ## Primary and combining expressions
 
-Expressions enclosed inside `[[ ]]` are called **test commands** or **primaries**. These expressions help us to indicate results of a conditional.
+Expressions enclosed inside `[[ ]]` (or `[ ]` for `sh`) are called **test commands** or **primaries**. These expressions help us to indicate results of a conditional. In tables bellow, we are using `[ ]`, because it works for `sh` too. Here is an answer about [the difference between double and single square brackets in bash](http://serverfault.com/a/52050).
 
 **Working with file system:**
 
@@ -483,8 +495,8 @@ if [[ 1 -eq 1 ]]; then echo "true"; fi;
 
 # Multi-line
 if [[ 1 -eq 1 ]]; then
-  echo "true";
-fi;
+  echo "true"
+fi
 ```
 
 Likewise, we could use `if..else` statement such as:
@@ -495,10 +507,10 @@ if [[ 2 -ne 1 ]]; then echo "true"; else echo "false"; fi;
 
 # Multi-line
 if [[ 2 -ne 1 ]]; then
-  echo "true";
+  echo "true"
 else
-  echo "false";
-fi;
+  echo "false"
+fi
 ```
 
 Sometimes `if..else` statements are not enough to do what we want to do. In this case we shouldn't forget about the existence of `if..elif..else` statements, which always come in handy.
@@ -507,12 +519,12 @@ Look at the example below:
 
 ```bash
 if [[ `uname` == "Adam" ]]; then
-  echo "Do not eat an apple!";
+  echo "Do not eat an apple!"
 elif [[ `uname` == "Eva" ]]; then
-  echo "Do not take an apple!";
+  echo "Do not take an apple!"
 else
-  echo "Apples are delicious!";
-fi;
+  echo "Apples are delicious!"
+fi
 ```
 
 ## Using a `case` statement
@@ -533,7 +545,7 @@ case "$extension" in
   *)
     echo "Woops! It's not image!"
   ;;
-esac;
+esac
 ```
 
 Each case is an expression matching a pattern. The `|` sign is used for separating multiple patterns, and the `)` operator terminates a pattern list. The commands for the first match are executed. `*` is the pattern for anything else that doesn't match the defined patterns. Each block of commands should be divided with `;;` operator.
@@ -791,6 +803,17 @@ This handbook narrates my own experience with Bash. It does not purport to be co
 Contributions are absolutely welcome and I will be grateful for any corrections or questions you can send my way. For all of that create a new [issue](https://github.com/denysdovhan/bash-handbook/issues).
 
 Thanks for reading this handbook!
+
+# Want to learn more?
+
+Here's a list of other literature covering Bash:
+
+* Bash man page.  In many environments that you can run Bash, the help system `man` can display information about Bash, by running the command `man bash`.  For more information on the `man` command, see the web page ["The man Command"](http://www.linfo.org/man.html) hosted at [The Linux Information Project](http://www.linfo.org/).
+
+* ["Bourne-Again SHell manual"](https://www.gnu.org/software/bash/manual/) in many formats, including HTML, Info, TeX, PDF, and Texinfo.  Hosted at <https://www.gnu.org/>.  As of 2016/01, this covers version 4.3, last updated 2015/02/02.
+
+* [Bash 3.2 Man page](https://developer.apple.com/library/mac/documentation/Darwin/Reference/ManPages/man1/bash.1.html) hosted at Apple's Mac Developer Library site.  As of 2016/01, this covers version 3.2, last updated 2006/09/28.
+
 
 # License
 
